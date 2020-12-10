@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+"""
+Take .fif-file(s) from the parsed arguments and save the channel data as csv (see also --help)
+"""
+
 import os
 import logging
 
@@ -27,15 +31,18 @@ logger.info(f"Parsed arguments: {args}")
 import mne
 import numpy as np
 
+# Iterate over all files listed by the user
 for filename in args.filenames:
     logger.info(f"Reading data for {filename}")
     raw = mne.io.read_raw_fif(filename)
 
     data = raw.get_data()
 
+    # If the user wants the time points to be in the first row of the csv
     if not args.no_times:
         data = np.insert(data, 0, raw.times, axis=0)
 
+    # Replace the original file extension in for the output filename
     if args.replace_type:
         out_filename = f"{os.path.splitext(filename)[0]}.{args.output_type}"
     else:
