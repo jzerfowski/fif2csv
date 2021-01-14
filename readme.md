@@ -13,7 +13,7 @@ Due to the less efficient encoding, the output files can be up to ~8 times large
 ### Linux
 ```
 usage: fif2csv.py [-h] [--delimiter DELIMITER] [--newline NEWLINE] [--output_type OUTPUT_TYPE] [--format--fmt FORMAT]
-                  [--replace_type] [--no_times] [--transpose]
+                  [--replace_type] [--no_times] [--transpose] [--no_header]
                   filenames [filenames ...]
 
 Easily convert .fif-files to csv-files
@@ -32,6 +32,7 @@ optional arguments:
   --replace_type, -nap  Replace original file extension with [output_type]
   --no_times, -nt       If used as an argument, no header with the times in seconds is prepended
   --transpose, -t       Transpose the data such that time is in colums. Puts the time into rows by default
+  --no_header, -nh      Store a header for each column (Time, Sensor name(s)). Only if transpose is not set
 ```
 
 ### Windows
