@@ -23,6 +23,8 @@ parser.add_argument('--replace_type', '-nap', default=False, action='store_true'
                     help="Replace original file extension with [output_type]")
 parser.add_argument('--no_times', '-nt', default=False, action='store_true',
                     help='If used as an argument, no header with the times in seconds is prepended')
+parser.add_argument('--transpose', '-t', default=False, action='store_true',
+                    help="Transpose the data such that time is in colums. Puts the time into rows by default")
 
 args = parser.parse_args()
 logger.info(f"Parsed arguments: {args}")
@@ -41,6 +43,9 @@ for filename in args.filenames:
     # If the user wants the time points to be in the first row of the csv
     if not args.no_times:
         data = np.insert(data, 0, raw.times, axis=0)
+
+    if not args.transpose:
+        data = data.T
 
     # Replace the original file extension in for the output filename
     if args.replace_type:

@@ -12,9 +12,8 @@ Due to the less efficient encoding, the output files can be up to ~8 times large
 ## Usage
 ### Linux
 ```
-fif2csv.py [-h] [--delimiter DELIMITER] [--newline NEWLINE]
-                  [--output_type OUTPUT_TYPE] [--format--fmt FORMAT]
-                  [--replace_type] [--no_times]
+usage: fif2csv.py [-h] [--delimiter DELIMITER] [--newline NEWLINE] [--output_type OUTPUT_TYPE] [--format--fmt FORMAT]
+                  [--replace_type] [--no_times] [--transpose]
                   filenames [filenames ...]
 
 Easily convert .fif-files to csv-files
@@ -29,11 +28,10 @@ optional arguments:
   --newline NEWLINE, -n NEWLINE
                         Character used for new lines
   --output_type OUTPUT_TYPE, -ot OUTPUT_TYPE
-  --format--fmt FORMAT  Format used in numpy's savetxt(fmt=...). Has to be a
-                        valid format string!
+  --format--fmt FORMAT  Format used in numpy's savetxt(fmt=...). Has to be a valid format string!
   --replace_type, -nap  Replace original file extension with [output_type]
-  --no_times, -nt       If used as an argument, no header with the times in
-                        seconds is prepended
+  --no_times, -nt       If used as an argument, no header with the times in seconds is prepended
+  --transpose, -t       Transpose the data such that time is in colums. Puts the time into rows by default
 ```
 
 ### Windows
