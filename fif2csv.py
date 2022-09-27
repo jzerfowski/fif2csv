@@ -24,7 +24,7 @@ parser.add_argument('--replace_type', '-nap', default=False, action='store_true'
 parser.add_argument('--no_times', '-nt', default=False, action='store_true',
                     help='If used as an argument, no header with the times in seconds is prepended')
 parser.add_argument('--transpose', '-t', default=False, action='store_true',
-                    help="Transpose the data such that time is in colums. Puts the time into rows by default")
+                    help="Transpose the data such that time is in columns. Puts the time into rows by default")
 parser.add_argument('--no_header', '-nh', default=False, action='store_true',
                     help="Store a header for each column (Time, Sensor name(s)). Only if transpose is not set")
 
